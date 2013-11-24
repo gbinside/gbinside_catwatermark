@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Gbinside_Catwatermark>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Gbinside_Catwatermark>
+    </modules>
+</config>

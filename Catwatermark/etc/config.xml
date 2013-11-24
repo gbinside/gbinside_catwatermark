@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Gbinside_Catwatermark>
+            <version>0.1.0</version>
+        </Gbinside_Catwatermark>
+    </modules>
+    <global>
+        <models>
+            <adminhtml>
+                <rewrite>
+                    <system_config_clone_media_image>Gbinside_Catwatermark_Model_Clone</system_config_clone_media_image>
+                </rewrite>
+            </adminhtml>
+
+            <gbcatwat>
+                <class>Gbinside_Catwatermark_Model</class>
+                <resourceModel>gbcatwat_resource</resourceModel>
+            </gbcatwat>
+            <gbcatwat_resource>
+                <class>Gbinside_Catwatermark_Model_Resource</class>
+            </gbcatwat_resource>
+        </models>
+        <helpers>
+            <gbcatwat>
+                <class>Gbinside_Catwatermark_Helper</class>
+            </gbcatwat>
+        </helpers>
+        <events>
+            <catalog_category_load_after>
+                <observers>
+                    <gbinside_catwatermark>
+                        <type>singleton</type>
+                        <class>Gbinside_Catwatermark_Model_Observer</class>
+                        <method>WatermarkCategory</method>
+                    </gbinside_catwatermark>
+                </observers>
+            </catalog_category_load_after>
+        </events>
+    </global>
+</config>
