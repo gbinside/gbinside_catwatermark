@@ -26,6 +26,8 @@
                 <class>Gbinside_Catwatermark_Helper</class>
             </gbcatwat>
         </helpers>
+    </global>
+    <frontend>
         <events>
             <catalog_category_load_after>
                 <observers>
@@ -37,5 +39,5 @@
                 </observers>
             </catalog_category_load_after>
         </events>
-    </global>
+    </frontend>
 </config>
