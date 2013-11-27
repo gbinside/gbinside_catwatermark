@@ -24,6 +24,7 @@ class Gbinside_Catwatermark_Model_Observer
         $_category = $observer->getDataObject();
 
         if ($_category->getImage()) {
+            $_category->setGboriginalImage($_category->getImage());
             $_filename = Mage::getBaseDir('media') . '/catalog/category/' . $_category->getImage();
             $_varienImage = new Varien_Image($_filename);
             $_image = Mage::getSingleton('catalog/product_media_config')->getBaseMediaPath() . '/watermark/' . Mage::getStoreConfig("design/watermark/category_image");
@@ -38,6 +39,14 @@ class Gbinside_Catwatermark_Model_Observer
             $_finalFilename = 'cache/catimage_' . $_category->getId() . '.jpg'; #collisioni?
             $_varienImage->save(Mage::getBaseDir('media') . '/catalog/category/' . $_finalFilename);
             $_category->setImage( $_finalFilename );
+        }
+    }
+
+    public function CategorySaveBefore($observer) {
+        $_category = $observer->getDataObject();
+
+        if ($_category->getGboriginalImage()) {
+            $_category->setImage($_category->getGboriginalImage());
         }
     }
 }
