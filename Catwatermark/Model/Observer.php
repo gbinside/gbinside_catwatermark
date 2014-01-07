@@ -24,6 +24,7 @@ class Gbinside_Catwatermark_Model_Observer
         $_category = $observer->getDataObject();
 
         if ($_category->getImage() && Mage::getStoreConfig("design/watermark/category_image")) {
+            $_category->setGboriginalImage($_category->getImage());
             $_filename = Mage::getBaseDir('media') . '/catalog/category/' . $_category->getImage();
             if (file_exists($_filename)) {
                 $_varienImage = new Varien_Image($_filename);
@@ -40,6 +41,14 @@ class Gbinside_Catwatermark_Model_Observer
                 $_varienImage->save(Mage::getBaseDir('media') . '/catalog/category/' . $_finalFilename);
                 $_category->setImage( $_finalFilename );
             }
+        }
+    }
+
+    public function CategorySaveBefore($observer) {
+        $_category = $observer->getDataObject();
+
+        if ($_category->getGboriginalImage()) {
+            $_category->setImage($_category->getGboriginalImage());
         }
     }
 }
