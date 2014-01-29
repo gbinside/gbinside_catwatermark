@@ -38,6 +38,15 @@
                     </gbinside_catwatermark>
                 </observers>
             </catalog_category_load_after>
+            <catalog_category_save_before>
+                <observers>
+                    <gbinside_catwatermark>
+                        <type>singleton</type>
+                        <class>Gbinside_Catwatermark_Model_Observer</class>
+                        <method>CategorySaveBefore</method>
+                    </gbinside_catwatermark>
+                </observers>
+            </catalog_category_save_before>
         </events>
     </frontend>
 </config>
