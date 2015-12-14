@@ -3,7 +3,7 @@
     <modules>
         <Gbinside_Catwatermark>
             <active>true</active>
-            <codePool>local</codePool>
+            <codePool>community</codePool>
         </Gbinside_Catwatermark>
     </modules>
 </config>
